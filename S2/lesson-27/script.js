@@ -1,27 +1,23 @@
 'use strict';
-// function getMathResult(num) {
-//   let arr = [];
-//   arr[0] = num - 1;
-//   arr[1] = num;
-//   arr[2] = num + 1;
-//   return arr;
-// }
 
-// console.log(typeof getMathResult(5));
-function getMathResult(baza, count) {
-  if (count > 0 && Number.isInteger(count)) {
-    let def = '---';
-    let str = '';
-    for (let i = 1; i < count + 1; ++i) {
-      if (i == count) {
-        str += baza * i;
+function fib(num) {
+  let prom = 0;
+  let result = '';
+  if (!isNaN(num)) {
+    for (let i = 0; i < num; i++) {
+      result += prom;
+      result += ' ';
+      if (prom == 0) {
+        prom = 1;
       } else {
-        str += baza * i + def;
+        prom =
+          parseInt(result.charAt(result.length - 4)) +
+          parseInt(result.charAt(result.length - 2));
       }
     }
-    return str;
+    return result.slice(0, -1);
   } else {
-    return toString(baza);
+    return '';
   }
 }
-console.log(getMathResult(5, 'k'));
+console.log(getMathResult(6));
